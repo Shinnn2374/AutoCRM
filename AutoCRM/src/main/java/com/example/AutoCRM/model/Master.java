@@ -1,5 +1,7 @@
 package com.example.AutoCRM.model;
 
+import com.example.AutoCRM.model.modelEnums.MasterStatus;
+import com.example.AutoCRM.model.modelEnums.Specilization;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +20,13 @@ public class Master {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private 
+    @Enumerated(EnumType.STRING)
+    private Specilization specilization;
+
+    private String firstName;
+
+    private String lastName;
+
+    @Enumerated(EnumType.STRING)
+    private MasterStatus status;
 }
