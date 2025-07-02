@@ -1,5 +1,6 @@
 package com.example.AutoCRM.model;
 
+import com.example.AutoCRM.dto.client.ClientResponseDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,4 +32,15 @@ public class Client {
     @OneToMany(mappedBy = "cars")
     private List<Car> cars;
 
+
+    public static ClientResponseDto modelToDto(Client client) {
+        var clientDto = new ClientResponseDto().builder()
+                .firstName(client.getFirstName())
+                .lastName(client.getLastName())
+                .email(client.getEmail())
+                .phone(client.getPhone())
+                .cars(client.getCars())
+                .build();
+        return clientDto;
+    }
 }
