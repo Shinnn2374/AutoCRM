@@ -23,27 +23,36 @@ public class ClientServiceImpl implements ClientService {
                 .map(Client::modelToDto).toList();
     }
 
-    @Override
-    public ClientResponseDto getClientById(int id) {
-        return null;
-    }
 
+    @Override
     public ClientResponseDto getClientById(Long id) {
         return clientRepository.findById(id).map(Client::modelToDto)
                 .orElseThrow(() -> new ClientNotFoundException(MessageFormat.format("Client with id {0} not found", id)));
     }
 
-    public ClientResponseDto createClient(ClientRequestDto clientRequestDto) {
-        Client
-    }
-
     @Override
-    public ClientResponseDto updateClient(int id, ClientRequestDto clientRequestDto) {
+    public ClientResponseDto createClient(ClientRequestDto request) {
+        var client = Client.builder()
+                .id(System.currentTimeMillis())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .email()
+                .phone()
+                .cars() 
+                .build();
+
         return null;
     }
 
     @Override
-    public ClientResponseDto deleteClient(int id) {
+    public ClientResponseDto updateClient(Long id, ClientRequestDto request) {
         return null;
     }
+
+    @Override
+    public ClientResponseDto deleteClient(Long id) {
+        return null;
+    }
+
+
 }

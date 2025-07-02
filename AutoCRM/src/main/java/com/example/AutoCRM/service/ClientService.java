@@ -9,11 +9,11 @@ public interface ClientService {
 
     List<ClientResponseDto> getAllClients();
 
-    ClientResponseDto getClientById(int id);
+    ClientResponseDto getClientById(Long id);
 
     ClientResponseDto createClient(ClientRequestDto clientRequestDto);
 
-    ClientResponseDto updateClient(int id, ClientRequestDto clientRequestDto);
+    ClientResponseDto updateClient(Long id, ClientRequestDto clientRequestDto);
 
-    ClientResponseDto deleteClient(int id);
+    ClientResponseDto deleteClient(Long id);
 }
