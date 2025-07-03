@@ -1,5 +1,6 @@
 package com.example.AutoCRM.model;
 
+import com.example.AutoCRM.dto.car.CarResponseDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,4 +28,15 @@ public class Car {
     private int year;
 
     private String vin;
+
+    public static CarResponseDto CarToCarResponseDto(Car car) {
+        var CarDto = new CarResponseDto().builder()
+                .brand(car.getBrand())
+                .model(car.getModel())
+                .color(car.getColor())
+                .year(car.getYear())
+                .vin(car.getVin())
+                .build();
+        return CarDto;
+    }
 }
