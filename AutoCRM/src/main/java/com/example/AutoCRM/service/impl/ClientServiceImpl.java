@@ -38,7 +38,7 @@ public class ClientServiceImpl implements ClientService {
                 .lastName(request.getLastName())
                 .email()
                 .phone()
-                .cars() 
+                .cars()
                 .build();
 
         return null;
