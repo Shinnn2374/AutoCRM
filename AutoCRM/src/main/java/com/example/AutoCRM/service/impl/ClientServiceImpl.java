@@ -50,8 +50,8 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ClientResponseDto deleteClient(Long id) {
-        return null;
+    public void deleteClient(Long id) {
+        clientRepository.deleteById(id);
     }
 
 
